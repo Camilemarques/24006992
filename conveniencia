@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+
+void registrarVenda(float *valorTotalDia) {
+    char nomeProduto[50];
+    int quantidade;
+    float precoUnitario, valorTotal;
+    char continuar;
+
+    // Solicita os dados da venda
+    printf("Digite o nome do produto: ");
+    scanf(" %49[^\n]", nomeProduto); 
+
+    printf("Digite a quantidade vendida: ");
+    scanf("%d", &quantidade);
+
+    printf("Digite o preço unitário do produto: ");
+    scanf("%f", &precoUnitario);
+
+    // Calcula o valor total da venda
+    valorTotal = quantidade * precoUnitario;
+    printf("Valor total da venda de %s: R$ %.2f\n", nomeProduto, valorTotal);
+
+    // Adiciona o valor da venda ao total do dia
+    *valorTotalDia += valorTotal;
+
+    // Pergunta se o usuário deseja registrar outra venda
+    printf("Deseja registrar outra venda? (S/N): ");
+    scanf(" %c", &continuar);
+
+    // Se o usuário desejar continuar, chama a função novamente
+    if (continuar == 'S' || continuar == 's') {
+        registrarVenda(valorTotalDia);
+    }
+}
+
+int main() {
+    float valorTotalDia = 0;
+
+    // Chama a função pela primeira vez
+    registrarVenda(&valorTotalDia);
+
+    // Exibe o valor total arrecadado no dia
+    printf("\nValor total arrecadado no dia: R$ %.2f\n", valorTotalDia);
+
+return 0;
+}
