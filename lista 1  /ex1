@@ -1,1 +1,36 @@
+#include <stdio.h>
 
+int main() {
+    unsigned int n = 4000000000; // Corrigir tipo da variável para unsigned int
+    printf("%u\n", n); // Alterar o especificador de formato para unsigned, já que n é unsigned int
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int a; // Declarar a variável antes de usá-la
+    a = 10; // Atribuir um valor para 'a'
+    printf("%d\n", a);
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    printf("%d%d\n", 4, 2); // Usar o mesmo printf com dois valores
+    return 0;
+}
+
+
+
+#include <stdio.h>
+
+int main() {
+    int a;
+    scanf("%d", &a); // Adicionar o '&' para passar o endereço da variável
+    printf("%d", a);
+    return 0;
+}
