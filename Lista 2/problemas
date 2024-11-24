@@ -1,0 +1,140 @@
+a. Interpretação da primeira linha da matriz ambientData
+A primeira linha da matriz ambientData representa os valores de temperatura em graus Celsius em cinco momentos diferentes no primeiro local de monitoramento. Os valores são:
+
+Momento 1: 22°C
+Momento 2: 25°C
+Momento 3: 23°C
+Momento 4: 21°C
+Momento 5: 24°C
+b. Média da umidade do solo no segundo local de monitoramento
+Os dados de umidade do solo no segundo local de monitoramento (segunda linha da matriz) são:
+
+45%, 38%, 42%, 40%, 37%
+Para calcular a média:
+
+M
+e
+ˊ
+dia
+=
+Soma dos valores
+Quantidade de valores
+=
+45
++
+38
++
+42
++
+40
++
+37
+5
+=
+202
+5
+=
+40.4
+%
+M 
+e
+ˊ
+ dia= 
+Quantidade de valores
+Soma dos valores
+​
+ = 
+5
+45+38+42+40+37
+​
+ = 
+5
+202
+​
+ =40.4%
+A média da umidade do solo no segundo local é 40.4%.
+
+c. Momento em que a concentração de CO2 atingiu o valor máximo no terceiro local
+Os dados de concentração de CO2 no terceiro local (terceira linha da matriz) são:
+
+400, 380, 420, 410, 390
+O valor máximo é 420 ppm, que ocorreu no momento 3 (índice 2 na matriz, mas o terceiro momento para interpretação).
+
+d. Código para calcular e imprimir a média de temperatura em todos os locais monitorados
+Segue o código completo para calcular e imprimir a média de temperatura:
+
+cpp
+Copiar código
+int ambientData[3][5] = {
+    {22, 25, 23, 21, 24},   // Temperatura
+    {45, 38, 42, 40, 37},   // Umidade do solo
+    {400, 380, 420, 410, 390} // CO2
+};
+
+int totalLocais = 3;
+int totalLeituras = 5;
+int somaTemperaturas = 0;
+
+void setup() {
+    Serial.begin(9600);
+
+    for (int i = 0; i < totalLeituras; i++) { // Soma todas as temperaturas
+        somaTemperaturas += ambientData[0][i];
+    }
+
+    float mediaTemperatura = somaTemperaturas / (float)totalLeituras; // Média
+    Serial.print("Média da temperatura: ");
+    Serial.println(mediaTemperatura);
+}
+
+void loop() {
+    // O loop permanece vazio, pois tudo é feito no setup
+}
+Explicações:
+Iteração pela linha de temperaturas (ambientData[0]):
+
+A variável somaTemperaturas acumula os valores da primeira linha da matriz (temperatura).
+Um for percorre as colunas da linha de temperaturas.
+Cálculo da média:
+
+Dividimos a soma total das temperaturas pelo número de leituras (totalLeituras).
+Usamos (float) para garantir o cálculo correto com números decimais.
+Saída no monitor serial:
+
+A média da temperatura é exibida no monitor serial da IDE do Arduino.
+Resultados esperados para os exemplos fornecidos:
+Média da temperatura:
+M
+e
+ˊ
+dia
+=
+22
++
+25
++
+23
++
+21
++
+24
+5
+=
+115
+5
+=
+23.0
+°
+𝐶
+M 
+e
+ˊ
+ dia= 
+5
+22+25+23+21+24
+​
+ = 
+5
+115
+​
+ =23.0°C
