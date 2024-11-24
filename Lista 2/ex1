@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main () {
+    float temperatura;
+    do {
+        printf("digite a temperatura atual (ou um valor negativo para sair):");
+        scanf("%f", &temperatura);
+
+        if (temperatura < 0){
+            break; //encerra o loop se o usuário digita um valor negativo
+    
+        }
+        if (temperatura < 20.0 || temperatura > 25.0){
+            printf("alerta! temperatura fora da faixa segura (20°c a 25°c0)");
+        } else {
+            printf("temperatura está dentro da faixa segura.\n");
+        }
+    } while (1); //loop infinito até o usuário interromper
+    return 0;
+} 
