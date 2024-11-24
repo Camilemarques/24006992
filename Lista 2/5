@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+int main (){
+    int dias;
+    printf("digite quantos dias deseja analisar: ");
+    scanf("%d", &dias);
+
+    float precos[dias];
+    float soma=0, media, desviopadrao-0;
+
+    for (int i=0; i<dias; i++){
+        printf("digite o preco do dia %d: " i+1);
+        scanf("%f", &precos[i]);
+        soma+= precos[i];
+    }
+    media= soma / dias;
+    for (int i =0; i< dias; i++){
+        desviopadrao +=pow(precos[i]- media, 2);
+    }
+    desviopadrao = sqrt(desviopadrao/dias);
+
+    printf("media: %.2f", media);
+    printf("desvio padrao: %.2f%%", desviopadrao);
+
+    if (desviopadrao < 5.0){
+        printf("desempenho estável");
+    } else{
+        printf("desempenho volátil");
+    }
+    return 0;
+}
