@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void ligarLampada() {
+    cout << "Lâmpada ligada." << endl;
+}
+
+void tocarSom() {
+    cout << "Som tocando." << endl;
+}
+
+void moverBraco() {
+    cout << "Braço movido." << endl;
+}
+
+int main() {
+    string comando;
+
+    while (true) {
+        cout << "Escolha uma ação (lampada, som, braco, sair): ";
+        cin >> comando;
+
+        if (comando == "sair") {
+            cout << "Programa encerrado." << endl;
+            break;
+        } else if (comando == "lampada") {
+            ligarLampada();
+        } else if (comando == "som") {
+            tocarSom();
+        } else if (comando == "braco") {
+            moverBraco();
+        } else {
+            cout << "Comando inválido!" << endl;
+        }
+    }
+
+    return 0;
+}
