@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int x = 0, y = 0; // Posição inicial do robô
+    string comando;
+
+    cout << "Robô inicializado em (0, 0) no espaço 10x10." << endl;
+
+    while (true) {
+        cout << "Digite um comando (frente, tras, esquerda, direita, sair): ";
+        cin >> comando;
+
+        if (comando == "sair") {
+            cout << "Programa encerrado." << endl;
+            break;
+        } else if (comando == "frente" && y < 10) {
+            y++;
+        } else if (comando == "tras" && y > 0) {
+            y--;
+        } else if (comando == "esquerda" && x > 0) {
+            x--;
+        } else if (comando == "direita" && x < 10) {
+            x++;
+        } else {
+            cout << "Comando inválido ou movimento fora dos limites!" << endl;
+        }
+
+        cout << "Posição atual: (" << x << ", " << y << ")" << endl;
+    }
+
+    return 0;
+}
