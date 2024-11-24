@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstdlib> // Para gerar números aleatórios
+#include <ctime>   // Para inicializar o gerador de números aleatórios
+
+using namespace std;
+
+int main() {
+    srand(time(0)); // Inicializa o gerador de números aleatórios
+    string comando;
+    bool lendo = false;
+
+    while (true) {
+        cout << "Digite 'iniciar' para começar a leitura ou 'parar' para encerrar: ";
+        cin >> comando;
+
+        if (comando == "parar") {
+            cout << "Programa encerrado." << endl;
+            break;
+        } else if (comando == "iniciar") {
+            lendo = true;
+        }
+
+        while (lendo) {
+            int distancia = rand() % 50; // Simula leituras de 0 a 50 cm
+            cout << "Distância medida: " << distancia << " cm" << endl;
+
+            if (distancia < 10) {
+                cout << "Distância menor que 10 cm detectada. Encerrando leitura." << endl;
+                lendo = false;
+            }
+        }
+    }
+
+    return 0;
+}
