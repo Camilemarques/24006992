@@ -1,0 +1,143 @@
+#include <iostream>
+#include <string>
+#include <cstdlib> // Para gerar números aleatórios
+#include <ctime>   // Para inicializar o gerador de números aleatórios
+
+using namespace std;
+
+// Funções para as funcionalidades do robô
+void controleMovimento() {
+    int x = 0, y = 0; // Posição inicial
+    string comando;
+
+    cout << "Controle de Movimento iniciado (grid 10x10)." << endl;
+    cout << "Posição inicial: (0, 0)." << endl;
+
+    while (true) {
+        cout << "Digite um comando (frente, tras, esquerda, direita, sair): ";
+        cin >> comando;
+
+        if (comando == "sair") break;
+
+        if (comando == "frente" && y < 9) y++;
+        else if (comando == "tras" && y > 0) y--;
+        else if (comando == "esquerda" && x > 0) x--;
+        else if (comando == "direita" && x < 9) x++;
+        else cout << "Movimento inválido ou fora dos limites!" << endl;
+
+        cout << "Posição atual: (" << x << ", " << y << ")" << endl;
+    }
+}
+
+void leituraSensores() {
+    srand(time(0)); // Inicializa o gerador de números aleatórios
+    cout << "Leitura de Sensores iniciada." << endl;
+
+    while (true) {
+        int distancia = rand() % 50; // Simula leituras de 0 a 50 cm
+        cout << "Distância medida: " << distancia << " cm" << endl;
+
+        if (distancia < 10) {
+            cout << "Distância menor que 10 cm detectada. Encerrando leitura." << endl;
+            break;
+        }
+
+        cout << "Pressione Enter para próxima leitura ou digite 'parar' para sair." << endl;
+        string comando;
+        cin.ignore(); getline(cin, comando);
+        if (comando == "parar") break;
+    }
+}
+
+void controleAtuacao() {
+    string comando;
+
+    cout << "Controle de Atuação iniciado." << endl;
+
+    while (true) {
+        cout << "Escolha uma ação (lampada, som, braco, sair): ";
+        cin >> comando;
+
+        if (comando == "sair") break;
+
+        if (comando == "lampada") cout << "Lâmpada ligada." << endl;
+        else if (comando == "som") cout << "Som tocando." << endl;
+        else if (comando == "braco") cout << "Braço movido." << endl;
+        else cout << "Ação inválida!" << endl;
+    }
+}
+
+void monitoramentoBateria() {
+    srand(time(0)); // Inicializa o gerador de números aleatórios
+
+    cout << "Monitoramento de Bateria iniciado." << endl;
+
+    while (true) {
+        int nivelBateria = rand() % 101; // Nível de bateria de 0% a 100%
+        cout << "Nível de bateria: " << nivelBateria << "%" << endl;
+
+        if (nivelBateria > 20) {
+            cout << "Bateria suficiente. Sistema estável." << endl;
+            break;
+        } else {
+            cout << "Aviso: Nível de bateria baixo! Por favor, recarregue." << endl;
+        }
+
+        cout << "Pressione Enter para verificar novamente ou digite 'parar' para sair." << endl;
+        string comando;
+        cin.ignore(); getline(cin, comando);
+        if (comando == "parar") break;
+    }
+}
+
+void navegacaoAutonoma() {
+    int x = 0, y = 0; // Posição inicial no grid 5x5
+    string comando;
+
+    cout << "Navegação Autônoma iniciada (grid 5x5)." << endl;
+    cout << "Posição inicial: (0, 0)." << endl;
+
+    while (true) {
+        cout << "Digite um comando (cima, baixo, esquerda, direita, parar): ";
+        cin >> comando;
+
+        if (comando == "parar") break;
+
+        if (comando == "cima" && y < 4) y++;
+        else if (comando == "baixo" && y > 0) y--;
+        else if (comando == "esquerda" && x > 0) x--;
+        else if (comando == "direita" && x < 4) x++;
+        else cout << "Movimento inválido ou fora dos limites!" << endl;
+
+        cout << "Posição atual: (" << x << ", " << y << ")" << endl;
+    }
+}
+
+// Menu principal
+int main() {
+    int escolha;
+
+    do {
+        cout << "\n=== Menu Principal ===" << endl;
+        cout << "1. Controle de Movimento" << endl;
+        cout << "2. Leitura de Sensores" << endl;
+        cout << "3. Controle de Atuação" << endl;
+        cout << "4. Monitoramento de Bateria" << endl;
+        cout << "5. Navegação Autônoma" << endl;
+        cout << "6. Sair" << endl;
+        cout << "Escolha uma opção: ";
+        cin >> escolha;
+
+        switch (escolha) {
+            case 1: controleMovimento(); break;
+            case 2: leituraSensores(); break;
+            case 3: controleAtuacao(); break;
+            case 4: monitoramentoBateria(); break;
+            case 5: navegacaoAutonoma(); break;
+            case 6: cout << "Encerrando programa." << endl; break;
+            default: cout << "Opção inválida! Tente novamente." << endl; break;
+        }
+    } while (escolha != 6);
+
+    return 0;
+}
