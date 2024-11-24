@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main(){
+    int totalpassos = 0;
+    int passos;
+
+    while (totalpassos<10000){
+        printf("digite a quantidade de passos dados: ");
+        scanf ("%d", &passos);
+
+        totalpassos+=passos;
+        printf("total de paasos: %d", totalpassos);
+
+        if (totalpassos >=10000) {
+            printf("parabens vc atingiu a meta de 10000 passos");
+        }
+    }
+    return 0;
+}
