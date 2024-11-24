@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main() {
+    int combustível;
+    do {
+        printf("digite o nível de combustível (0-100%%): ");
+        scanf("%d", &combustível);
+
+        if (combustível >=100){
+            printf("tanque cheio");
+            break; //encerra o loop quando o tanque está cheio
+        } else if (combustível < 15){
+            printf("alerta, nível de combustível abaixo de 15%%. recarregue o veiculo");
+        } else {
+            printf("nível de combustível seguro");
+        }
+    }while (1); //continua monitorando até que o tanque esteja cheio
+    return 0;
+} 
