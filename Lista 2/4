@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main(){
+    float depósito;
+
+    do{
+        printf("digite o valor do depósito inicial: R$ ");
+        scanf("%f", &depósito);
+
+        id (depósito >= 500.0){
+            printf("depósito aceito. conta criada com sucesso");
+            break; //encerra o loop se o depósito for válido
+        } else{
+            printf("valor insuficiente. o depósito mínimo é de R$500,00");
+        }
+    } while(1); //continua pedindo até o valor ser válido
+    return 0;
+}
