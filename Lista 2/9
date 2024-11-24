@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cstdlib> // Para gerar números aleatórios
+#include <ctime>   // Para inicializar o gerador de números aleatórios
+
+using namespace std;
+
+int main() {
+    srand(time(0)); // Inicializa o gerador de números aleatórios
+    int nivelBateria;
+
+    cout << "Monitoramento de bateria do robô iniciado." << endl;
+
+    while (true) {
+        // Simula a leitura do nível da bateria (0% a 100%)
+        nivelBateria = rand() % 101;
+
+        cout << "Nível atual da bateria: " << nivelBateria << "%" << endl;
+
+        if (nivelBateria > 20) {
+            cout << "Bateria suficiente. Sistema estável." << endl;
+            break;
+        } else {
+            cout << "Aviso: Nível de bateria baixo! Por favor, recarregue." << endl;
+        }
+
+        // Pausa para simular monitoramento contínuo
+        cout << "Aguardando nova verificação..." << endl;
+        cin.get(); // Aguarda o usuário pressionar Enter
+    }
+
+    cout << "Programa encerrado." << endl;
+    return 0;
+}
