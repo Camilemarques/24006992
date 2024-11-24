@@ -1,0 +1,63 @@
+//ex 1 
+int cameraData[10];
+
+
+//ex 2
+// leitura do vetor analogo e armazenamento no vetor 
+
+//ex 3 
+float temperaturas[5] = {25.5, 26.0, 24.8, 27.3, 26.5};
+
+
+//ex 4
+//função: Itera sobre os primeiros 4 elementos do vetor ledPins e imprime os valores armazenados nele pela interface serial.
+//possível saída: Dependerá dos valores em ledPins. Por exemplo, se ledPins = {2, 3, 4, 5};, a saída seria:
+2
+3
+4
+5
+
+
+//ex 5 
+int ledPins[] = {2, 3, 4, 5}; // Inicialização do vetor ledPins
+
+void setup() {
+    Serial.begin(9600); // Inicializa a comunicação serial
+    for (int i = 0; i < 4; i++) {
+        Serial.println(ledPins[i]); // Imprime os valores do vetor na interface serial
+    }
+}
+
+void loop() {
+    // O loop pode permanecer vazio, pois o código é executado apenas no setup()
+}
+
+
+//ex 6
+int randomValues[5];
+
+void setup() {
+    Serial.begin(9600);
+    randomSeed(analogRead(0)); // Inicializa o gerador de números aleatórios com um valor variável
+
+    for (int i = 0; i < 5; i++) {
+        randomValues[i] = random(0, 101); // Gera valores aleatórios entre 0 e 100
+        Serial.println(randomValues[i]); // Exibe os valores gerados
+    }
+}
+
+void loop() {
+    // Código opcional no loop
+}
+
+
+//ex 7
+//função : O código percorre o vetor sensorReadings e verifica se algum elemento possui o valor 150.
+Se o valor 150 for encontrado, a instrução break interrompe o laço for imediatamente.
+
+
+//ex 8
+//sizeof(sensorData) retorna o tamanho total do vetor em bytes.
+//sizeof(sensorData[0]) retorna o tamanho de um único elemento do vetor.
+//Dividindo os dois valores, obtemos o número de elementos no vetor.
+
