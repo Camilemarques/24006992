@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int x = 0, y = 0; // Posição inicial do robô no grid 5x5
+    string comando;
+
+    cout << "Robô inicializado na posição (0, 0) no grid 5x5." << endl;
+
+    while (true) {
+        cout << "Digite um comando (cima, baixo, esquerda, direita, parar): ";
+        cin >> comando;
+
+        if (comando == "parar") {
+            cout << "Programa encerrado." << endl;
+            break;
+        } else if (comando == "cima") {
+            if (y < 4) {
+                y++;
+            } else {
+                cout << "Movimento inválido! Fora dos limites do grid." << endl;
+            }
+        } else if (comando == "baixo") {
+            if (y > 0) {
+                y--;
+            } else {
+                cout << "Movimento inválido! Fora dos limites do grid." << endl;
+            }
+        } else if (comando == "esquerda") {
+            if (x > 0) {
+                x--;
+            } else {
+                cout << "Movimento inválido! Fora dos limites do grid." << endl;
+            }
+        } else if (comando == "direita") {
+            if (x < 4) {
+                x++;
+            } else {
+                cout << "Movimento inválido! Fora dos limites do grid." << endl;
+            }
+        } else {
+            cout << "Comando inválido! Tente novamente." << endl;
+        }
+
+        cout << "Posição atual: (" << x << ", " << y << ")" << endl;
+    }
+
+    return 0;
+}
